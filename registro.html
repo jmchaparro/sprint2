@@ -21,34 +21,39 @@
 
 
     <div id="container-form">
-      <form id="form-registro" onsubmit=validate()>
+      <form id="form-registro" method="POST" onsubmit=validate()>
         <h1 id="registro">
           Registro
         </h1>
 
         <div class="item nombre">
-          <label id="campo">Nombre</label>
+          <label class="campo">Nombre</label>
           <input id="nombre" type="text" />
         </div>
 
         <div class="item apellido">
-          <label id="campo">Apellido</label>
+          <label class="campo">Apellido</label>
           <input id="apellido" type="text" />
         </div>
 
         <div class="item telefono">
-          <label id="campo">Telefono</label>
+          <label class="campo">Telefono</label>
           <input id="telefono" type="text" />
         </div>
 
 
         <div class="item correo">
-          <label id="campo">Correo</label>
+          <label class="campo">Correo</label>
           <input id="correo" type="text" />
         </div>
         <div class="item pass">
-          <label id="campo">Contraseña</label>
-          <input type="password" id="password" /><br>
+          <label class="campo">Contraseña</label>
+          <input type="password" id="password" onblur="checkContrasena(this.value)" />
+
+          <!-- <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">ver</button> -->
+
+          <div id="seguridad"></div>
+
         </div>
         <div class="item boton">
           <button type="submit" id="btn-submit-form" value="Registrar">Registrarme</button>

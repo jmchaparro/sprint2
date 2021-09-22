@@ -2,6 +2,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  color: #666;
 }
 * {
   box-sizing: border-box;
@@ -9,7 +10,6 @@ html {
 h1 {
   font-size: 1.6em;
   text-transform: uppercase;
-  color: #222;
 }
 #container {
   position: relative;
@@ -19,7 +19,7 @@ h1 {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  background-image: url(/images/bg.jpg);
+  background-image: url(../images/bg.jpg);
   background-size: cover;
   padding-bottom: 40px;
   height: 100%;
@@ -34,8 +34,6 @@ h1 {
   font-weight: 300;
 }
 
-#container .boton {
-}
 #container-void {
   height: 360px;
 }
@@ -142,8 +140,7 @@ body {
   max-width: 400px;
 }
 
-#form-registro #campo {
-  font-size: 1em;
+#form-registro .campo {
   width: 100%;
   display: block;
   margin-top: 10px;
@@ -156,14 +153,43 @@ body {
   border: 1px solid #dee2e6;
   border-radius: 10px;
   padding: 5px 10px;
-  color: #38326e;
+  color: #989b9e;
   font-weight: 300;
+  font-size: 0.9em;
+}
+
+#form-registro label {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #7292b1;
+}
+
+#form-registro .item {
+  margin-bottom: 15px;
+  position: relative;
+}
+#form-registro button.btn.btn-primary {
+  position: absolute;
+  right: 10px;
+  top: 27px;
+  width: 35px;
+  border: 0;
+  padding: 4px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
 #registro {
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: 300;
+  background: #38326e;
+  color: #fff;
+  font-size: 1.4em;
+  padding: 5px;
+  border-radius: 15px;
 }
 
 #btn-submit-form {
@@ -221,4 +247,16 @@ footer {
     width: 100%;
     min-width: none;
   }
+}
+
+div#seguridad {
+  font-size: 0.75em;
+  padding: 10px;
+  text-align: justify;
+
+  color: #56c70f;
+}
+
+div#seguridad .error {
+  color: #f00;
 }

@@ -1,3 +1,20 @@
+function checkNombre() {
+  var validanombre = document.getElementById("nombre");
+  if (validanombre.value.length == 0) {
+    validanombre.style.border = "1px solid #f50808";
+    alert("false 1");
+    return false;
+  } else if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validanombre.value)) {
+    validanombre.style.border = "1px solid #f50808";
+    alert("false 2");
+    return false;
+  } else {
+    validanombre.style.border = "1px solid #dee2e6";
+    alert("true");
+    return true;
+  }
+}
+
 function checkCorreo() {
   let email = document.getElementById("correo").value;
   let regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -12,26 +29,37 @@ function checkCorreo() {
   }
 }
 
-function checkNombre() {
-  var validanombre = document.getElementById('nombre');
-  if (validanombre.value.length == 0) {
-      validanombre.style.border= '1px solid #f50808'; 
-      alert("false 1");
-      return false;
-  } else if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validanombre.value)) {
-      validanombre.style.border= '1px solid #f50808'; 
-      alert("false 2");
-      return false;
+function mostrarContrasena() {
+  var tipo = document.getElementById("password");
+  if (tipo.type == "password") {
+    tipo.type = "text";
   } else {
-      validanombre.style.border= '1px solid #dee2e6'; 
-      alert("true");
-      return true;
+    tipo.type = "password";
+  }
+}
+
+function checkContrasena() {
+  var validapass = document.getElementById("password");
+  if (
+    /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,25}$/gm.test(validapass.value)
+  ) {
+    document.getElementById("seguridad").innerHTML = "Clave segura!";
+    console.log(true);
+    // alert("true");
+    return true;
+  } else {
+    document.getElementById("seguridad").innerHTML =
+      "<div class='error'>Debe ingresar por lo menos  una letra mayúscula,  una minúscula, un número  y con una longitud  mayor o igual a 8 dígitos</div>";
+    console.log(false);
+    // alert("false");
+    return false;
   }
 }
 
 function validate() {
-  checkCorreo();
   checkNombre();
+  checkCorreo();
+  checkContrasena();
 }
 
-module.exports = { checkCorreo, checkNombre }
+module.exports = { checkNombre, checkCorreo, checkContrasena };
