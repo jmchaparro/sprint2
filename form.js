@@ -31,4 +31,7 @@ function checkNombre() {
 
 function validate() {
   checkCorreo();
+  checkNombre();
 }
+
+module.exports = { checkCorreo, checkNombre }
