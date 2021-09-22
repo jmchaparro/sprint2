@@ -15,7 +15,3 @@ function checkCorreo() {
 function validate() {
   checkCorreo();
 }
-
-
-// esto es una prueba de git
-
