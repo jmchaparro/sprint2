@@ -15,6 +15,22 @@ function checkNombre() {
   }
 }
 
+function checkApellido() {
+  var validaApellido = document.getElementById("apellido");
+  if (validaApellido.value.length == 0) {
+    validaApellido.style.border = "1px solid #f50808";
+    alert("false 1");
+    return false;
+  } else if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validaApellido.value)) {
+    validaApellido.style.border = "1px solid #f50808";
+    alert("false 2");
+    return false;
+  } else {
+    validaApellido.style.border = "1px solid #dee2e6";
+    alert("true");
+    return true;
+  }
+}
 
 function checkTelefono() {
   var telefono = document.getElementById("telefono").value;
@@ -23,12 +39,9 @@ function checkTelefono() {
     return true;
   } else {
     alert("Deben ser 7 digitos!");
-    //telefono = document.getElementById("telefono").value = "";
     return false;
   }
 }
-
-
 
 function checkCorreo() {
   let email = document.getElementById("correo").value;
@@ -73,9 +86,10 @@ function checkContrasena() {
 
 function validate() {
   checkNombre();
+  checkApellido();
+  checkTelefono();
   checkCorreo();
   checkContrasena();
-  checkTelefono();
 }
 
-module.exports = { checkNombre, checkCorreo, checkContrasena , checkTelefono};
+module.exports = { checkNombre,   checkApellido, checkTelefono, checkCorreo, checkContrasena };
