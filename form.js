@@ -15,6 +15,21 @@ function checkNombre() {
   }
 }
 
+
+function checkTelefono() {
+  var telefono = document.getElementById("telefono").value;
+  if (!isNaN(telefono) && telefono.length === 7) {
+    alert("Exitoso!");
+    return true;
+  } else {
+    alert("Deben ser 7 digitos!");
+    //telefono = document.getElementById("telefono").value = "";
+    return false;
+  }
+}
+
+
+
 function checkCorreo() {
   let email = document.getElementById("correo").value;
   let regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
@@ -60,6 +75,7 @@ function validate() {
   checkNombre();
   checkCorreo();
   checkContrasena();
+  checkTelefono();
 }
 
-module.exports = { checkNombre, checkCorreo, checkContrasena };
+module.exports = { checkNombre, checkCorreo, checkContrasena , checkTelefono};
