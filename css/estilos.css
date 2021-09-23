@@ -25,6 +25,10 @@ h1 {
   height: 100%;
 }
 
+#container h1 {
+  color: #fff;
+}
+
 #container .texto {
   text-align: center;
   line-height: 1.4em;
