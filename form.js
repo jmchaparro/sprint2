@@ -1,58 +1,65 @@
 function checkNombre() {
   var validanombre = document.getElementById("nombre");
-  if (validanombre.value.length == 0) {
-    validanombre.style.border = "1px solid #f50808";
-    alert("false 1");
-    return false;
-  } else if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validanombre.value)) {
-    validanombre.style.border = "1px solid #f50808";
-    alert("false 2");
+
+  if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validanombre.value)) {
+    validanombre.style.border = "2px solid #f50808";
+    console.log(
+      "Nombre: Validar  el campo  nombre  evitando que se ingresen  caracteres numéricos, restringiendo  la longitud  entre 4 y 30 caracteres máximo  y que el campo  no se deje  vacío."
+    );
     return false;
   } else {
-    validanombre.style.border = "1px solid #dee2e6";
-    alert("true");
+    validanombre.style.border = "2px solid #dee2e6";
+    console.log("Nombre correcto!");
     return true;
   }
 }
 
 function checkApellido() {
   var validaApellido = document.getElementById("apellido");
-  if (validaApellido.value.length == 0) {
-    validaApellido.style.border = "1px solid #f50808";
-    alert("false 1");
-    return false;
-  } else if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validaApellido.value)) {
-    validaApellido.style.border = "1px solid #f50808";
-    alert("false 2");
+  if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validaApellido.value)) {
+    validaApellido.style.border = "2px solid #f50808";
+    console.log(
+      "Apellido: Validar  el campo Apellido  evitando que se ingresen  caracteres numéricos, restringiendo  la longitud  entre 4 y 30 caracteres máximo  y que el campo  no se deje  vacío."
+    );
     return false;
   } else {
-    validaApellido.style.border = "1px solid #dee2e6";
-    alert("true");
+    validaApellido.style.border = "2px solid #dee2e6";
+    console.log("Apellido correcto!");
     return true;
   }
 }
 
 function checkTelefono() {
   var telefono = document.getElementById("telefono").value;
+  var validartelefono = document.getElementById("telefono");
   if (!isNaN(telefono) && telefono.length === 7) {
-    alert("Exitoso!");
+    validartelefono.style.border = "2px solid #dee2e6";
+    console.log("Teléfono correcto!");
     return true;
   } else {
-    alert("Deben ser 7 digitos!");
+    validartelefono.style.border = "2px solid #f50808";
+    console.log(
+      "Teléfono: Validar  el campo  teléfono, este campo  debe tener una longitud  de 7 dígitos únicamente,  solo puede contener caracteres numéricos  y no puede  dejarse vacío."
+    );
     return false;
   }
 }
 
 function checkCorreo() {
   let email = document.getElementById("correo").value;
+  var validaremail = document.getElementById("correo");
   let regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if (email == null || email.length == 0) {
-    alert("Campo correo es obligatorio");
+    validaremail.style.border = "2px solid #f50808";
+    console.log("Campo correo es obligatorio");
     return false;
   } else if (regex.test(email) == false) {
-    alert("ingrese un correo valido");
+    validaremail.style.border = "2px solid #f50808";
+    console.log("ingrese un correo valido");
     return false;
   } else {
+    validaremail.style.border = "2px solid #dee2e6";
+    console.log("Correo correcto!");
     return true;
   }
 }
@@ -72,19 +79,29 @@ function checkContrasena() {
     /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,25}$/gm.test(validapass.value)
   ) {
     document.getElementById("seguridad").innerHTML = "Clave segura!";
-    console.log(true);
-    // alert("true");
+    validapass.style.border = "2px solid #dee2e6";
+    console.log("Clave correcta!");
     return true;
   } else {
+    validapass.style.border = "2px solid #f50808";
     document.getElementById("seguridad").innerHTML =
       "<div class='error'>Debe ingresar por lo menos  una letra mayúscula,  una minúscula, un número  y con una longitud  mayor o igual a 8 dígitos</div>";
-    console.log(false);
-    // alert("false");
+
+    console.log(
+      "Validación  de la contraseña, en donde el usuario deba  de ingresar por lo menos  una letra mayúscula,  una minúscula,  un número  y con una longitud  mayor  o igual a 8 dígitos. Este campo  es requerido,  por lo que, no se puede  dejar vacío. "
+    );
     return false;
   }
 }
 
+const miFormulario = document.getElementById("form-registro");
+
+miFormulario.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
 function validate() {
+  console.clear();
   checkNombre();
   checkApellido();
   checkTelefono();
@@ -92,4 +109,10 @@ function validate() {
   checkContrasena();
 }
 
-module.exports = { checkNombre,   checkApellido, checkTelefono, checkCorreo, checkContrasena };
+module.exports = {
+  checkNombre,
+  checkApellido,
+  checkTelefono,
+  checkCorreo,
+  checkContrasena,
+};
