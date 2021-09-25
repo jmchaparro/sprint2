@@ -1,5 +1,5 @@
-function checkNombre() {
-  var validanombre = document.getElementById("nombre");
+const checkNombre = () => {
+  let validanombre = document.getElementById("nombre");
 
   if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validanombre.value)) {
     validanombre.style.border = "2px solid #f50808";
@@ -14,8 +14,8 @@ function checkNombre() {
   }
 }
 
-function checkApellido() {
-  var validaApellido = document.getElementById("apellido");
+const checkApellido = () => {
+  let validaApellido = document.getElementById("apellido");
   if (!/^[a-zA-ZÀ-ÿ\s]{4,30}$/.test(validaApellido.value)) {
     validaApellido.style.border = "2px solid #f50808";
     console.log(
@@ -29,9 +29,9 @@ function checkApellido() {
   }
 }
 
-function checkTelefono() {
-  var telefono = document.getElementById("telefono").value;
-  var validartelefono = document.getElementById("telefono");
+const checkTelefono = () => {
+  let telefono = document.getElementById("telefono").value;
+  let validartelefono = document.getElementById("telefono");
   if (!isNaN(telefono) && telefono.length === 7) {
     validartelefono.style.border = "2px solid #dee2e6";
     console.log("Teléfono correcto!");
@@ -45,9 +45,9 @@ function checkTelefono() {
   }
 }
 
-function checkCorreo() {
+const checkCorreo = () => {
   let email = document.getElementById("correo").value;
-  var validaremail = document.getElementById("correo");
+  let validaremail = document.getElementById("correo");
   let regex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if (email == null || email.length == 0) {
     validaremail.style.border = "2px solid #f50808";
@@ -65,7 +65,7 @@ function checkCorreo() {
 }
 
 function mostrarContrasena() {
-  var tipo = document.getElementById("password");
+  let tipo = document.getElementById("password");
   if (tipo.type == "password") {
     tipo.type = "text";
   } else {
@@ -73,8 +73,8 @@ function mostrarContrasena() {
   }
 }
 
-function checkContrasena() {
-  var validapass = document.getElementById("password");
+const checkContrasena = () => {
+  let validapass = document.getElementById("password");
   if (
     /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])([^\s]){8,25}$/gm.test(validapass.value)
   ) {
